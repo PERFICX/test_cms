@@ -1,0 +1,22 @@
+{
+  "intro": "Research at the intersection of abstract algebra and functional analysis, with a particular focus on algebraic derivations, cohomological invariants, and structural properties of algebraic objects.",
+  "interests": [
+    { "label": "Algebra", "icon": "diagram-3" },
+    { "label": "Derivations", "icon": "grid-3x3" },
+    { "label": "Cohomology Theory", "icon": "link-45deg" },
+    { "label": "Path Algebras", "icon": "share" },
+    { "label": "Residuated Lattices", "icon": "bezier2" },
+    { "label": "Functional Analysis", "icon": "infinity" },
+    { "label": "Fixed Point Theory", "icon": "arrows-collapse" },
+    { "label": "Trivial Extension Algebras", "icon": "layers" },
+    { "label": "Jordan Derivations", "icon": "braces" },
+    { "label": "Operator Theory", "icon": "node-plus" }
+  ],
+  "lab_name": "Scientific Research and Innovation",
+  "lab_director": "Prof. Habiba Chaoui",
+  "activities": [
+    { "activity": "MathICs Project — Dissemination Strategy, High School Level" },
+    { "activity": "International conference participation & speaker" },
+    { "activity": "Scientific committee contributor" }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Prof. Brahim Fahid",
+  "title_en": "Habilitated Professor of Mathematics",
+  "title_fr": "Professeur de l'Enseignement Supérieur Habilité",
+  "department": "Analysis & Algebra",
+  "institution": "Ibn Tofaïl University, Kénitra, Morocco",
+  "faculty": "Higher School of Technology (EST)",
+  "stats": [
+    { "number": "5+", "label": "Publications" },
+    { "number": "2", "label": "Research Labs" },
+    { "number": "10+", "label": "Years Teaching" }
+  ],
+  "photo": ""
+}

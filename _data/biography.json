@@ -1,0 +1,10 @@
+{
+  "lead": "A dedicated researcher and educator in the fields of Analysis and Algebra, committed to advancing mathematical knowledge through rigorous inquiry and inspiring the next generation of mathematicians.",
+  "body_1": "Prof. Brahim Fahid is a Habilitated Professor of Mathematics at the Higher School of Technology, Ibn Tofaïl University, Kénitra, Morocco. His research focuses on algebraic structures, derivations, cohomology theory, path algebras, and residuated lattices — contributing original results to some of the most active frontiers of contemporary algebra.",
+  "body_2": "He is a member of the Scientific Research and Innovation Laboratory under the direction of Prof. Habiba Chaoui, and has co-authored work with leading algebraists including Driss Bennis and other international collaborators. His ORCID-verified publication record spans indexed international journals.",
+  "education": [
+    { "label": "PhD", "degree": "Doctorat en Mathématiques", "institution": "{{phd_university}}", "year": "{{phd_year}}", "thesis": "", "supervisor": "" },
+    { "label": "Habilitation", "degree": "Habilitation à Diriger des Recherches (HDR)", "institution": "Analysis & Algebra", "year": "{{habilitation_year}}", "thesis": "", "supervisor": "" },
+    { "label": "Current", "degree": "Professeur Habilité de l'Enseignement Supérieur", "institution": "Ibn Tofaïl University, Kénitra — EST", "year": "", "thesis": "", "supervisor": "" }
+  ]
+}
