@@ -1,0 +1,253 @@
+# ============================================================
+# Decap CMS Configuration — Prof. Brahim Fahid Academic Portfolio
+# ============================================================
+# Docs: https://decapcms.org/docs/configuration-options/
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main   # Change to your default branch if different (e.g. master)
+
+# Enable Netlify Identity for local dev:
+# Run `npx netlify-cms-proxy-server` alongside your dev server
+# and set local_backend: true below (comment out for production)
+# local_backend: true
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# ============================================================
+# SITE-WIDE SETTINGS (Collections)
+# ============================================================
+collections:
+
+  # ----------------------------------------------------------
+  # 1. SITE SETTINGS (single file — global data)
+  # ----------------------------------------------------------
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+
+      # ---- 1a. General Info ----
+      - name: "general"
+        label: "General Info"
+        file: "_data/general.json"
+        fields:
+          - { label: "Professor Full Name", name: "name", widget: "string", default: "Prof. Brahim Fahid" }
+          - { label: "Title / Rank (English)", name: "title_en", widget: "string", default: "Habilitated Professor of Mathematics" }
+          - { label: "Title / Rank (French)", name: "title_fr", widget: "string", default: "Professeur de l'Enseignement Supérieur Habilité" }
+          - { label: "Department / Field", name: "department", widget: "string", default: "Analysis & Algebra" }
+          - { label: "Institution", name: "institution", widget: "string", default: "Ibn Tofaïl University, Kénitra, Morocco" }
+          - { label: "School / Faculty", name: "faculty", widget: "string", default: "Higher School of Technology (EST)" }
+          - label: "Hero Stats"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.number}} {{fields.label}}"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          - { label: "Profile Photo", name: "photo", widget: "image", required: false, hint: "Upload the professor's portrait photo (JPG/PNG, min 600x750px recommended)" }
+
+      # ---- 1b. Biography ----
+      - name: "biography"
+        label: "Biography"
+        file: "_data/biography.json"
+        fields:
+          - { label: "Lead Paragraph (italic intro)", name: "lead", widget: "text", hint: "The highlighted italic introductory sentence shown prominently." }
+          - { label: "Main Biography (paragraph 1)", name: "body_1", widget: "text" }
+          - { label: "Main Biography (paragraph 2)", name: "body_2", widget: "text" }
+          - label: "Education Timeline"
+            name: "education"
+            widget: "list"
+            summary: "{{fields.degree}} — {{fields.institution}}"
+            fields:
+              - { label: "Label (e.g. PhD / Habilitation)", name: "label", widget: "string" }
+              - { label: "Degree / Qualification", name: "degree", widget: "string" }
+              - { label: "Institution", name: "institution", widget: "string" }
+              - { label: "Year", name: "year", widget: "string" }
+              - { label: "Thesis Title (optional)", name: "thesis", widget: "string", required: false }
+              - { label: "Supervisor (optional)", name: "supervisor", widget: "string", required: false }
+
+      # ---- 1c. Social / Profile Links ----
+      - name: "social"
+        label: "Social & Academic Profiles"
+        file: "_data/social.json"
+        fields:
+          - { label: "Email Address", name: "email", widget: "string", default: "brahim.fahid@uit.ac.ma" }
+          - { label: "ORCID (URL)", name: "orcid_url", widget: "string", default: "https://orcid.org/0000-0002-1017-0404" }
+          - { label: "ORCID ID", name: "orcid_id", widget: "string", default: "0000-0002-1017-0404" }
+          - { label: "LinkedIn (URL)", name: "linkedin_url", widget: "string", default: "https://www.linkedin.com/in/fahid-brahim-66a20788" }
+          - { label: "Google Scholar (URL)", name: "scholar_url", widget: "string", required: false }
+          - { label: "ResearchGate (URL)", name: "researchgate_url", widget: "string", required: false }
+          - { label: "ResearchGate Handle", name: "researchgate_handle", widget: "string", required: false }
+          - { label: "Scopus Profile (URL)", name: "scopus_url", widget: "string", required: false }
+          - { label: "Scopus ID", name: "scopus_id", widget: "string", required: false }
+          - { label: "Mendeley Profile (URL)", name: "mendeley_url", widget: "string", required: false }
+
+      # ---- 1d. Research Settings ----
+      - name: "research"
+        label: "Research & Laboratory"
+        file: "_data/research.json"
+        fields:
+          - { label: "Research Intro Text", name: "intro", widget: "text" }
+          - label: "Research Interests"
+            name: "interests"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Interest Label", name: "label", widget: "string" }
+              - { label: "Bootstrap Icon Name (e.g. diagram-3)", name: "icon", widget: "string", default: "diagram-3" }
+          - { label: "Laboratory Name", name: "lab_name", widget: "string", default: "Scientific Research and Innovation" }
+          - { label: "Laboratory Director", name: "lab_director", widget: "string", default: "Prof. Habiba Chaoui" }
+          - label: "Academic Activities"
+            name: "activities"
+            widget: "list"
+            summary: "{{fields.activity}}"
+            fields:
+              - { label: "Activity Description", name: "activity", widget: "string" }
+
+  # ----------------------------------------------------------
+  # 2. PUBLICATIONS (collection — one file per entry)
+  # ----------------------------------------------------------
+  - name: "publications"
+    label: "📄 Publications"
+    label_singular: "Publication"
+    folder: "_publications"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    summary: "{{title}} ({{year}})"
+    sortable_fields: ["year", "title"]
+    view_filters:
+      - label: "2021"
+        field: "year"
+        pattern: "2021"
+      - label: "Journal Articles"
+        field: "type"
+        pattern: "Journal Article"
+      - label: "Conference Papers"
+        field: "type"
+        pattern: "Conference Paper"
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "Full title of the paper or article." }
+      - label: "Publication Type"
+        name: "type"
+        widget: "select"
+        options:
+          - "Journal Article"
+          - "Conference Paper"
+          - "Book Chapter"
+          - "Preprint"
+          - "Thesis"
+          - "Other"
+        default: "Journal Article"
+      - { label: "Year", name: "year", widget: "number", value_type: "int", min: 1990, max: 2099 }
+      - { label: "Authors", name: "authors", widget: "string", hint: "Full author list. Bold your own name with **Brahim Fahid**." }
+      - { label: "Journal / Conference / Venue", name: "venue", widget: "string" }
+      - { label: "Volume", name: "volume", widget: "string", required: false }
+      - { label: "Issue / Number", name: "issue", widget: "string", required: false }
+      - { label: "Pages", name: "pages", widget: "string", required: false }
+      - { label: "DOI", name: "doi", widget: "string", required: false, hint: "e.g. 10.1080/00927872.2021.1926471" }
+      - { label: "External URL", name: "url", widget: "string", required: false }
+      - { label: "Abstract / Description", name: "abstract", widget: "text", required: false }
+      - label: "Tags (for filtering)"
+        name: "tags"
+        widget: "list"
+        allow_add: true
+        hint: "e.g. algebra, derivations, cohomology"
+      - { label: "Status", name: "status", widget: "select", options: ["Published", "Accepted", "Under Review", "Preprint"], default: "Published" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Pin to top of the publication list." }
+
+  # ----------------------------------------------------------
+  # 3. TEACHING (collection — one file per module/course)
+  # ----------------------------------------------------------
+  - name: "teaching"
+    label: "🎓 Teaching"
+    label_singular: "Course / Module"
+    folder: "_teaching"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{level}} · {{title}}"
+    sortable_fields: ["level", "title"]
+    fields:
+      - { label: "Course Title", name: "title", widget: "string" }
+      - label: "Level"
+        name: "level"
+        widget: "select"
+        options:
+          - "Undergraduate"
+          - "Master's"
+          - "Doctoral Seminar"
+          - "Supervision"
+          - "Other"
+        default: "Undergraduate"
+      - { label: "Short Description", name: "description", widget: "text" }
+      - { label: "Bootstrap Icon Name (e.g. calculator)", name: "icon", widget: "string", default: "calculator", hint: "See https://icons.getbootstrap.com/ for icon names." }
+      - label: "Teaching Mode"
+        name: "mode"
+        widget: "select"
+        options: ["Lecture", "Tutorial", "Lab", "Seminar", "Online"]
+        default: "Lecture"
+      - { label: "Credit Hours", name: "credits", widget: "string", required: false }
+      - { label: "Semester", name: "semester", widget: "string", required: false }
+      - { label: "Language of Instruction", name: "language", widget: "select", options: ["French", "English", "Arabic", "French/English"], default: "French" }
+      - { label: "Active", name: "active", widget: "boolean", default: true, hint: "Uncheck to hide this course from the website." }
+
+  # ----------------------------------------------------------
+  # 4. SUPERVISION (collection — PhD/Master theses)
+  # ----------------------------------------------------------
+  - name: "supervision"
+    label: "🔬 Supervision"
+    label_singular: "Thesis / Student"
+    folder: "_supervision"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{student_name}} — {{level}} ({{year}})"
+    fields:
+      - { label: "Student Full Name", name: "student_name", widget: "string" }
+      - { label: "Thesis Title", name: "thesis_title", widget: "string" }
+      - label: "Degree Level"
+        name: "level"
+        widget: "select"
+        options: ["PhD", "Master's", "License"]
+        default: "PhD"
+      - { label: "Year (started or defended)", name: "year", widget: "number", value_type: "int" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["In Progress", "Defended", "Co-supervised"]
+        default: "In Progress"
+      - { label: "Notes", name: "notes", widget: "text", required: false }
+
+  # ----------------------------------------------------------
+  # 5. EVENTS & ACTIVITIES (conferences, talks, committees)
+  # ----------------------------------------------------------
+  - name: "events"
+    label: "📅 Events & Activities"
+    label_singular: "Event"
+    folder: "_events"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    summary: "{{title}} ({{year}})"
+    sortable_fields: ["year", "type"]
+    fields:
+      - { label: "Event Title", name: "title", widget: "string" }
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options:
+          - "Conference Speaker"
+          - "Conference Participant"
+          - "Conference Organizer"
+          - "Editorial Board"
+          - "Scientific Committee"
+          - "Seminar Contributor"
+          - "Invited Talk"
+          - "Workshop"
+          - "Other"
+      - { label: "Year", name: "year", widget: "number", value_type: "int" }
+      - { label: "Location / Venue", name: "location", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Event URL", name: "url", widget: "string", required: false }

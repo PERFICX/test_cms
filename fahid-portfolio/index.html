@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Prof. Brahim Fahid | Mathematics · Ibn Tofaïl University</title>
+  <meta name="description" content="Professor Brahim Fahid – Habilitated Professor in Mathematics (Analysis & Algebra) at Ibn Tofaïl University, Kénitra, Morocco. Researcher in derivations, cohomology, and algebraic structures." />
+  <meta name="keywords" content="Brahim Fahid, mathematics, algebra, derivations, cohomology, path algebras, residuated lattices, Ibn Tofaïl University, Kénitra, Morocco" />
+  <meta name="author" content="Prof. Brahim Fahid" />
+  <meta property="og:title" content="Prof. Brahim Fahid | Mathematics Researcher" />
+  <meta property="og:description" content="Academic portfolio of Prof. Brahim Fahid, Habilitated Professor in Mathematics at Ibn Tofaïl University." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://brahimfahid.netlify.app/" />
+
+  <!-- Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <style>
+    /* ============================
+       CSS CUSTOM PROPERTIES
+    ============================ */
+    :root {
+      --ink:        #0e1a2b;
+      --ink-mid:    #1c2f47;
+      --ink-light:  #2a4364;
+      --gold:       #b8942a;
+      --gold-light: #d4af5a;
+      --cream:      #f7f4ef;
+      --cream-mid:  #ede9e0;
+      --slate:      #5a6e84;
+      --muted:      #8899aa;
+      --white:      #ffffff;
+
+      --ff-serif:   'Cormorant Garamond', Georgia, serif;
+      --ff-sans:    'Montserrat', sans-serif;
+      --ff-body:    'Open Sans', sans-serif;
+
+      --radius:     4px;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-sm:  0 2px 12px rgba(14,26,43,0.08);
+      --shadow-md:  0 8px 32px rgba(14,26,43,0.14);
+      --shadow-lg:  0 20px 60px rgba(14,26,43,0.18);
+    }
+
+    /* ============================
+       BASE
+    ============================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--ff-body);
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--ff-serif);
+      line-height: 1.2;
+    }
+
+    a { color: inherit; text-decoration: none; transition: color var(--transition); }
+    img { max-width: 100%; display: block; }
+
+    ::selection { background: var(--gold); color: var(--white); }
+
+    /* ============================
+       SCROLL PROGRESS
+    ============================ */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ============================
+       NAVBAR
+    ============================ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.25rem 0;
+      transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+    }
+
+    #navbar.scrolled {
+      background: rgba(14, 26, 43, 0.97);
+      backdrop-filter: blur(12px);
+      padding: 0.75rem 0;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.2);
+    }
+
+    .nav-brand {
+      font-family: var(--ff-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-brand span { color: var(--gold-light); }
+
+    .navbar-toggler {
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.35rem 0.6rem;
+    }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .nav-link-custom {
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      padding: 0.5rem 1rem !important;
+      position: relative;
+      transition: color var(--transition);
+    }
+
+    .nav-link-custom::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      width: 0; height: 1px;
+      background: var(--gold-light);
+      transform: translateX(-50%);
+      transition: width var(--transition);
+    }
+
+    .nav-link-custom:hover { color: var(--white); }
+    .nav-link-custom:hover::after { width: 60%; }
+    .nav-link-custom.active { color: var(--gold-light); }
+    .nav-link-custom.active::after { width: 60%; }
+
+    /* ============================
+       HERO
+    ============================ */
+    #hero {
+      min-height: 100vh;
+      background: var(--ink);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Geometric background pattern */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(44,82,130,0.35) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(184,148,42,0.12) 0%, transparent 60%);
+    }
+
+    /* Grid lines texture */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-eyebrow {
+      font-family: var(--ff-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-name {
+      font-family: var(--ff-serif);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.9s 0.1s ease both;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-title {
+      font-family: var(--ff-body);
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.9s 0.2s ease both;
+    }
+
+    .hero-title strong {
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 0.9s 0.3s ease both;
+    }
+
+    .hero-badge {
+      font-family: var(--ff-sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.7);
+      border-radius: 2px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      animation: fadeInUp 0.9s 0.4s ease both;
+    }
+
+    .btn-gold {
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184,148,42,0.35);
+      color: var(--white);
+    }
+
+    .btn-outline-white {
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* Photo Column */
+    .hero-photo-wrap {
+      position: relative;
+      animation: fadeInRight 1s 0.3s ease both;
+    }
+
+    .hero-photo-frame {
+      width: 340px;
+      height: 420px;
+      max-width: 100%;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .hero-photo-frame::before {
+      content: '';
+      position: absolute;
+      top: -16px; right: -16px;
+      width: 100%; height: 100%;
+      border: 1px solid rgba(184,148,42,0.4);
+      border-radius: var(--radius);
+    }
+
+    .hero-photo-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -16px; left: -16px;
+      width: 60%; height: 60%;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+    }
+
+    .hero-photo-inner {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--ink-mid) 0%, var(--ink-light) 100%);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-photo-inner img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .photo-placeholder-icon {
+      font-size: 5rem;
+      color: rgba(255,255,255,0.15);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      animation: fadeInUp 0.9s 0.5s ease both;
+    }
+
+    .hero-stat-num {
+      font-family: var(--ff-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-family: var(--ff-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.25rem;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      animation: fadeIn 1s 1s ease both;
+    }
+
+    .scroll-indicator span {
+      font-family: var(--ff-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ============================
+       SECTION COMMONS
+    ============================ */
+    section { padding: 6rem 0; }
+
+    .section-label {
+      font-family: var(--ff-sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--ink-light); }
+
+    .section-divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Dark section variants */
+    .bg-dark-ink { background: var(--ink); }
+    .bg-dark-ink .section-title { color: var(--white); }
+    .bg-dark-ink .section-label { color: var(--gold-light); }
+    .bg-dark-ink .section-label::before { background: var(--gold-light); }
+    .bg-dark-ink p { color: rgba(255,255,255,0.65); }
+
+    /* ============================
+       ABOUT
+    ============================ */
+    #about { background: var(--white); }
+
+    .about-photo-col {
+      position: sticky;
+      top: 6rem;
+      align-self: flex-start;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      max-width: 360px;
+    }
+
+    .about-img-wrap::before {
+      content: '';
+      position: absolute;
+      top: 16px; left: 16px;
+      right: -16px; bottom: -16px;
+      background: var(--cream-mid);
+      border-radius: var(--radius);
+      z-index: 0;
+    }
+
+    .about-img-inner {
+      position: relative;
+      z-index: 1;
+      background: var(--cream-mid);
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .about-img-inner img { width: 100%; height: 100%; object-fit: cover; }
+
+    .about-img-placeholder {
+      font-size: 5rem;
+      color: var(--muted);
+    }
+
+    .about-tag {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1rem;
+      background: var(--gold);
+      color: var(--white);
+      font-family: var(--ff-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.7rem 1.2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      z-index: 2;
+    }
+
+    .about-lead {
+      font-family: var(--ff-serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-light);
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-body {
+      font-size: 0.95rem;
+      color: var(--slate);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    /* Education Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.5rem; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 0.45rem;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+
+    .timeline-year {
+      font-family: var(--ff-sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .timeline-degree {
+      font-family: var(--ff-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0.15rem 0;
+    }
+
+    .timeline-institution {
+      font-size: 0.85rem;
+      color: var(--slate);
+    }
+
+    /* ============================
+       RESEARCH
+    ============================ */
+    #research { background: var(--cream); }
+
+    .interest-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--ff-sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.55rem 1.15rem;
+      border-radius: 2rem;
+      border: 1.5px solid var(--cream-mid);
+      background: var(--white);
+      color: var(--ink-mid);
+      transition: all var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .interest-pill:hover {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .interest-pill i { font-size: 0.7rem; color: var(--gold); }
+
+    .lab-card {
+      background: var(--ink);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .lab-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(184,148,42,0.15) 0%, transparent 70%);
+    }
+
+    .lab-card-label {
+      font-family: var(--ff-sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+
+    .lab-card-name {
+      font-family: var(--ff-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .lab-card-director {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .lab-card-director strong { color: rgba(255,255,255,0.8); }
+
+    /* ============================
+       PUBLICATIONS
+    ============================ */
+    #publications { background: var(--white); }
+
+    .pub-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .pub-filter-btn {
+      font-family: var(--ff-sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.1rem;
+      border: 1.5px solid var(--cream-mid);
+      background: transparent;
+      color: var(--slate);
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .pub-filter-btn:hover,
+    .pub-filter-btn.active {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    .pub-card {
+      background: var(--white);
+      border: 1px solid var(--cream-mid);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pub-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold);
+      transform: scaleY(0);
+      transition: transform var(--transition);
+    }
+
+    .pub-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateX(4px);
+    }
+
+    .pub-card:hover::before { transform: scaleY(1); }
+
+    .pub-type {
+      font-family: var(--ff-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-title {
+      font-family: var(--ff-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-authors {
+      font-size: 0.82rem;
+      color: var(--slate);
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-venue {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .pub-year-badge {
+      font-family: var(--ff-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: var(--cream);
+      color: var(--slate);
+      padding: 0.25rem 0.7rem;
+      border-radius: 2rem;
+    }
+
+    .pub-doi-link {
+      font-family: var(--ff-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.75rem;
+      transition: color var(--transition);
+    }
+
+    .pub-doi-link:hover { color: var(--ink); }
+
+    /* ============================
+       TEACHING
+    ============================ */
+    #teaching { background: var(--ink); }
+
+    .teaching-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 2rem;
+      height: 100%;
+      transition: all var(--transition);
+    }
+
+    .teaching-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(184,148,42,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    }
+
+    .teaching-icon {
+      width: 48px; height: 48px;
+      background: rgba(184,148,42,0.12);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .teaching-level {
+      font-family: var(--ff-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .teaching-course-name {
+      font-family: var(--ff-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .teaching-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+    }
+
+    /* ============================
+       CONTACT / PROFILES
+    ============================ */
+    #contact { background: var(--cream); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 576px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--cream-mid);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+
+    .contact-card:hover {
+      border-color: var(--gold);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .contact-card-icon {
+      width: 44px; height: 44px;
+      border-radius: var(--radius);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--ink-light);
+      flex-shrink: 0;
+      transition: background var(--transition);
+    }
+
+    .contact-card:hover .contact-card-icon {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .contact-card-label {
+      font-family: var(--ff-sans);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .contact-card-value {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-top: 0.1rem;
+      word-break: break-all;
+    }
+
+    .email-hero-block {
+      background: var(--ink);
+      border-radius: var(--radius);
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .email-hero-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(184,148,42,0.15) 0%, transparent 60%);
+    }
+
+    .email-hero-block .email-address {
+      font-family: var(--ff-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      position: relative;
+    }
+
+    .email-hero-block p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      position: relative;
+    }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    footer {
+      background: var(--ink);
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-brand {
+      font-family: var(--ff-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-brand span { color: var(--gold-light); }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 0.25rem;
+    }
+
+    .footer-admin-link {
+      font-family: var(--ff-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color var(--transition);
+    }
+
+    .footer-admin-link:hover { color: var(--gold-light); }
+
+    /* ============================
+       ANIMATIONS
+    ============================ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { transform: scaleY(1); opacity: 1; }
+      50% { transform: scaleY(0.6); opacity: 0.4; }
+    }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ============================
+       UTILITY
+    ============================ */
+    .text-gold { color: var(--gold) !important; }
+    .text-gold-light { color: var(--gold-light) !important; }
+    .text-slate { color: var(--slate) !important; }
+    .text-muted-custom { color: var(--muted) !important; }
+
+    @media (max-width: 992px) {
+      .hero-photo-wrap { margin-top: 4rem; }
+      .hero-photo-frame { width: 260px; height: 320px; }
+      .hero-stats { gap: 1.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 4rem 0; }
+      .about-photo-col { position: static; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- =====================
+       NAVBAR
+  ===================== -->
+  <nav id="navbar" class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="nav-brand" href="#hero">
+        Prof. <span>Fahid</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav gap-1 mt-3 mt-lg-0">
+          <li class="nav-item"><a class="nav-link-custom" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#research">Research</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#publications">Publications</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#teaching">Teaching</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =====================
+       HERO
+  ===================== -->
+  <section id="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <!-- Text -->
+        <div class="col-lg-7 hero-content">
+          <div class="hero-eyebrow">
+            Mathematician · Researcher · Educator
+          </div>
+
+          <h1 class="hero-name" id="hero-name">
+            Prof. Brahim<br /><em>Fahid</em>
+          </h1>
+
+          <p class="hero-title" id="hero-title">
+            <strong>Professeur de l'Enseignement Supérieur Habilité</strong><br />
+            Analysis & Algebra · Ibn Tofaïl University, Kénitra, Morocco
+          </p>
+
+          <div class="hero-badges">
+            <span class="hero-badge">Analysis</span>
+            <span class="hero-badge">Algebra</span>
+            <span class="hero-badge">Derivations</span>
+            <span class="hero-badge">Cohomology</span>
+            <span class="hero-badge">ORCID Verified</span>
+          </div>
+
+          <div class="hero-cta">
+            <a href="#publications" class="btn-gold">View Publications</a>
+            <a href="#contact" class="btn-outline-white">Get in Touch</a>
+          </div>
+
+          <div class="hero-stats" id="hero-stats">
+            <div>
+              <div class="hero-stat-num">5+</div>
+              <div class="hero-stat-label">Publications</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">2</div>
+              <div class="hero-stat-label">Research Labs</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">10+</div>
+              <div class="hero-stat-label">Years Teaching</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo -->
+        <div class="col-lg-5 hero-photo-wrap text-center">
+          <div class="hero-photo-frame mx-auto">
+            <div class="hero-photo-inner" id="hero-photo">
+              <!-- Replace src with actual professor photo -->
+              <!-- <img src="assets/photo.jpg" alt="Prof. Brahim Fahid" /> -->
+              <i class="bi bi-person-fill photo-placeholder-icon"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- =====================
+       ABOUT
+  ===================== -->
+  <section id="about">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Photo Sidebar -->
+        <div class="col-lg-4 about-photo-col">
+          <div class="about-img-wrap">
+            <div class="about-img-inner" id="about-photo">
+              <!-- <img src="assets/photo.jpg" alt="Prof. Brahim Fahid" /> -->
+              <i class="bi bi-person-fill about-img-placeholder"></i>
+            </div>
+            <div class="about-tag">
+              <i class="bi bi-building me-1"></i> Ibn Tofaïl University
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio Content -->
+        <div class="col-lg-8">
+
+          <div class="reveal">
+            <div class="section-label">Biography</div>
+            <h2 class="section-title">Academic <em>Profile</em></h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <p class="about-lead reveal reveal-delay-1" id="bio-lead">
+            A dedicated researcher and educator in the fields of Analysis and Algebra, committed to advancing mathematical knowledge through rigorous inquiry and inspiring the next generation of mathematicians.
+          </p>
+
+          <p class="about-body reveal reveal-delay-2" id="bio-body">
+            Prof. Brahim Fahid is a Habilitated Professor of Mathematics at the Higher School of Technology, Ibn Tofaïl University, Kénitra, Morocco. His research focuses on algebraic structures, derivations, cohomology theory, path algebras, and residuated lattices — contributing original results to some of the most active frontiers of contemporary algebra.
+          </p>
+
+          <p class="about-body reveal reveal-delay-2" id="bio-body-2">
+            He is a member of the <strong>Scientific Research and Innovation Laboratory</strong> under the direction of Prof. Habiba Chaoui, and has co-authored work with leading algebraists including Driss Bennis (Mohammed V University) and other international collaborators. His ORCID-verified publication record spans indexed international journals.
+          </p>
+
+          <!-- Education Timeline -->
+          <div class="reveal reveal-delay-3 mt-4">
+            <div class="section-label mb-3">Education</div>
+            <div class="timeline" id="education-timeline">
+
+              <div class="timeline-item">
+                <div class="timeline-year">PhD</div>
+                <div class="timeline-degree">Doctorat en Mathématiques</div>
+                <div class="timeline-institution">{{phd_university}} · {{phd_year}}</div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-year">Habilitation</div>
+                <div class="timeline-degree">Habilitation à Diriger des Recherches (HDR)</div>
+                <div class="timeline-institution">Analysis & Algebra · {{habilitation_year}}</div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-year">Current</div>
+                <div class="timeline-degree">Professeur Habilité de l'Enseignement Supérieur</div>
+                <div class="timeline-institution">Ibn Tofaïl University, Kénitra — EST</div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       RESEARCH
+  ===================== -->
+  <section id="research">
+    <div class="container">
+
+      <div class="row mb-5">
+        <div class="col-lg-7 reveal">
+          <div class="section-label">Research</div>
+          <h2 class="section-title">Areas of <em>Expertise</em></h2>
+          <div class="section-divider"></div>
+          <p class="text-slate" id="research-intro">
+            Research at the intersection of abstract algebra and functional analysis, with a particular focus on algebraic derivations, cohomological invariants, and structural properties of algebraic objects.
+          </p>
+        </div>
+      </div>
+
+      <!-- Research Interests Pills -->
+      <div class="mb-5 reveal reveal-delay-1" id="research-interests">
+        <div class="d-flex flex-wrap gap-2">
+          <span class="interest-pill"><i class="bi bi-diagram-3"></i> Algebra</span>
+          <span class="interest-pill"><i class="bi bi-grid-3x3"></i> Derivations</span>
+          <span class="interest-pill"><i class="bi bi-link-45deg"></i> Cohomology Theory</span>
+          <span class="interest-pill"><i class="bi bi-share"></i> Path Algebras</span>
+          <span class="interest-pill"><i class="bi bi-bezier2"></i> Residuated Lattices</span>
+          <span class="interest-pill"><i class="bi bi-infinity"></i> Functional Analysis</span>
+          <span class="interest-pill"><i class="bi bi-arrows-collapse"></i> Fixed Point Theory</span>
+          <span class="interest-pill"><i class="bi bi-layers"></i> Trivial Extension Algebras</span>
+          <span class="interest-pill"><i class="bi bi-braces"></i> Jordan Derivations</span>
+          <span class="interest-pill"><i class="bi bi-node-plus"></i> Operator Theory</span>
+        </div>
+      </div>
+
+      <!-- Lab & Activity Row -->
+      <div class="row g-4">
+        <div class="col-lg-6 reveal reveal-delay-1">
+          <div class="lab-card h-100">
+            <div class="lab-card-label"><i class="bi bi-flask me-1"></i> Laboratory Affiliation</div>
+            <div class="lab-card-name" id="lab-name">Scientific Research<br />and Innovation</div>
+            <div class="lab-card-director mt-2">
+              Director: <strong id="lab-director">Prof. Habiba Chaoui</strong>
+            </div>
+            <div class="mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08);">
+              <div class="lab-card-label">Institution</div>
+              <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Ibn Tofaïl University · Kénitra, Morocco</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal reveal-delay-2">
+          <div class="lab-card h-100">
+            <div class="lab-card-label"><i class="bi bi-calendar-event me-1"></i> Academic Activities</div>
+            <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.8;" id="activities-text">
+              <div class="mb-2">
+                <i class="bi bi-check-circle text-gold-light me-2"></i>
+                MathICs Project — Dissemination Strategy, High School Level
+              </div>
+              <div class="mb-2">
+                <i class="bi bi-check-circle text-gold-light me-2"></i>
+                International conference participation & speaker
+              </div>
+              <div class="mb-2">
+                <i class="bi bi-check-circle text-gold-light me-2"></i>
+                Scientific committee contributor
+              </div>
+              <div>
+                <i class="bi bi-plus-circle text-gold-light me-2"></i>
+                {{additional_activities}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================
+       PUBLICATIONS
+  ===================== -->
+  <section id="publications">
+    <div class="container">
+
+      <div class="row mb-4">
+        <div class="col-lg-8 reveal">
+          <div class="section-label">Scholarly Work</div>
+          <h2 class="section-title">Publications &amp; <em>Research Output</em></h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="col-lg-4 text-lg-end d-flex align-items-start justify-content-lg-end mt-3 mt-lg-0 reveal">
+          <a href="https://orcid.org/0000-0002-1017-0404" target="_blank" rel="noopener" class="btn-gold d-inline-flex align-items-center gap-2">
+            <i class="bi bi-box-arrow-up-right"></i> View ORCID
+          </a>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="pub-filter-bar reveal">
+        <button class="pub-filter-btn active" data-filter="all">All</button>
+        <button class="pub-filter-btn" data-filter="2021">2021</button>
+        <button class="pub-filter-btn" data-filter="algebra">Algebra</button>
+        <button class="pub-filter-btn" data-filter="derivations">Derivations</button>
+      </div>
+
+      <!-- Publications List -->
+      <div id="publications-list">
+
+        <div class="pub-card reveal" data-year="2021" data-tags="algebra derivations">
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+            <div class="pub-type"><i class="bi bi-journal-text me-1"></i> Journal Article</div>
+            <span class="pub-year-badge">2021</span>
+          </div>
+          <div class="pub-title">Communications in Algebra — Algebraic Structures Paper</div>
+          <div class="pub-authors">Driss Bennis, Brahim El Alaoui, <strong>Brahim Fahid</strong>, Michał Ziembowski</div>
+          <div class="pub-venue">Communications in Algebra</div>
+          <a href="https://doi.org/10.1080/00927872.2021.1926471" target="_blank" rel="noopener" class="pub-doi-link">
+            <i class="bi bi-link-45deg"></i> DOI: 10.1080/00927872.2021.1926471
+          </a>
+        </div>
+
+        <div class="pub-card reveal reveal-delay-1" data-year="2021" data-tags="algebra derivations">
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+            <div class="pub-type"><i class="bi bi-journal-text me-1"></i> Journal Article</div>
+            <span class="pub-year-badge">2021</span>
+          </div>
+          <div class="pub-title">Jordan G<sub>n</sub>-Derivations on Path Algebras</div>
+          <div class="pub-authors">Abderrahim Adrabi, Driss Bennis, <strong>Brahim Fahid</strong></div>
+          <div class="pub-venue">International Journal of Mathematics · Ibn Tofaïl University</div>
+          <a href="#" class="pub-doi-link"><i class="bi bi-link-45deg"></i> View Article</a>
+        </div>
+
+        <div class="pub-card reveal reveal-delay-2" data-tags="algebra derivations">
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+            <div class="pub-type"><i class="bi bi-journal-text me-1"></i> Journal Article</div>
+            <span class="pub-year-badge">{{year}}</span>
+          </div>
+          <div class="pub-title">Derivations and the First Cohomology Group of Trivial Extension Algebras</div>
+          <div class="pub-authors">Driss Bennis, <strong>Brahim Fahid</strong></div>
+          <div class="pub-venue">SemOpenAlex Indexed Journal</div>
+          <a href="#" class="pub-doi-link"><i class="bi bi-link-45deg"></i> View Article</a>
+        </div>
+
+        <div class="pub-card reveal reveal-delay-3" data-tags="algebra">
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+            <div class="pub-type"><i class="bi bi-journal-text me-1"></i> Journal Article</div>
+            <span class="pub-year-badge">{{year}}</span>
+          </div>
+          <div class="pub-title">On f-Derivations in Residuated Lattices</div>
+          <div class="pub-authors"><strong>Brahim Fahid</strong> et al.</div>
+          <div class="pub-venue">Fixed Points · Ideal f-Derivation Research</div>
+          <a href="#" class="pub-doi-link"><i class="bi bi-link-45deg"></i> View Article</a>
+        </div>
+
+        <div class="pub-card reveal" data-year="2021" data-tags="algebra">
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+            <div class="pub-type"><i class="bi bi-journal-text me-1"></i> Journal Article</div>
+            <span class="pub-year-badge">2021</span>
+          </div>
+          <div class="pub-title">A Note on Two of Vukman's Conjectures</div>
+          <div class="pub-authors"><strong>Brahim Fahid</strong></div>
+          <div class="pub-venue">Ring Theory · Algebraic Conjectures</div>
+          <a href="#" class="pub-doi-link"><i class="bi bi-link-45deg"></i> View Article</a>
+        </div>
+
+      </div>
+      <!-- /publications-list (CMS injects additional items here) -->
+
+    </div>
+  </section>
+
+  <!-- =====================
+       TEACHING
+  ===================== -->
+  <section id="teaching" class="bg-dark-ink">
+    <div class="container">
+
+      <div class="row mb-5">
+        <div class="col-lg-7 reveal">
+          <div class="section-label">Teaching</div>
+          <h2 class="section-title" style="color: var(--white);">Courses &amp; <em style="color:var(--gold-light)">Supervision</em></h2>
+          <div class="section-divider"></div>
+          <p id="teaching-intro">
+            Committed to excellence in mathematical education at the undergraduate and postgraduate levels, with a focus on equipping students with rigorous analytical and algebraic foundations.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4" id="teaching-modules">
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="teaching-card">
+            <div class="teaching-icon"><i class="bi bi-calculator"></i></div>
+            <div class="teaching-level">Undergraduate</div>
+            <div class="teaching-course-name">Algebra I &amp; II</div>
+            <div class="teaching-desc">Foundations of abstract algebra: groups, rings, fields, modules, and homomorphisms.</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal reveal-delay-1">
+          <div class="teaching-card">
+            <div class="teaching-icon"><i class="bi bi-graph-up"></i></div>
+            <div class="teaching-level">Undergraduate</div>
+            <div class="teaching-course-name">Real Analysis</div>
+            <div class="teaching-desc">Sequences, series, continuity, differentiability, and integration in rigorous mathematical settings.</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal reveal-delay-2">
+          <div class="teaching-card">
+            <div class="teaching-icon"><i class="bi bi-diagram-2"></i></div>
+            <div class="teaching-level">Master's</div>
+            <div class="teaching-course-name">Advanced Algebraic Structures</div>
+            <div class="teaching-desc">Category theory, cohomology, derivations, and advanced module theory for graduate students.</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal reveal-delay-1">
+          <div class="teaching-card">
+            <div class="teaching-icon"><i class="bi bi-person-workspace"></i></div>
+            <div class="teaching-level">Supervision</div>
+            <div class="teaching-course-name">PhD &amp; Master's Theses</div>
+            <div class="teaching-desc">Supervision and mentorship of doctoral and master's research candidates in mathematics.</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal reveal-delay-2">
+          <div class="teaching-card">
+            <div class="teaching-icon"><i class="bi bi-mortarboard"></i></div>
+            <div class="teaching-level">Doctoral Seminar</div>
+            <div class="teaching-course-name">Research Methods in Algebra</div>
+            <div class="teaching-desc">Doctoral-level seminar on current research methodologies and open problems in algebra.</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal reveal-delay-3">
+          <div class="teaching-card" style="border-style: dashed; opacity: 0.5;">
+            <div class="teaching-icon"><i class="bi bi-plus-lg"></i></div>
+            <div class="teaching-level">More Courses</div>
+            <div class="teaching-course-name">{{course_title}}</div>
+            <div class="teaching-desc">Add additional courses via the CMS dashboard.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       CONTACT
+  ===================== -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-7 text-center reveal">
+          <div class="section-label justify-content-center">Contact</div>
+          <h2 class="section-title">Get in <em>Touch</em></h2>
+          <div class="section-divider mx-auto"></div>
+          <p class="text-slate">For academic collaborations, research inquiries, or general correspondence.</p>
+        </div>
+      </div>
+
+      <div class="row g-5 justify-content-center">
+        <div class="col-lg-8">
+
+          <!-- Email Block -->
+          <div class="email-hero-block reveal">
+            <p style="position:relative; color:rgba(255,255,255,0.5); font-size:0.8rem; margin-bottom:0.5rem;">PRIMARY CONTACT</p>
+            <div class="email-address" id="contact-email">brahim.fahid@uit.ac.ma</div>
+            <p class="mt-2">Higher School of Technology · Ibn Tofaïl University · Kénitra, Morocco</p>
+          </div>
+
+          <!-- Profile Grid -->
+          <div class="contact-grid reveal reveal-delay-1" id="social-profiles">
+
+            <a href="https://orcid.org/0000-0002-1017-0404" target="_blank" rel="noopener" class="contact-card">
+              <div class="contact-card-icon"><i class="bi bi-patch-check"></i></div>
+              <div>
+                <div class="contact-card-label">ORCID</div>
+                <div class="contact-card-value">0000-0002-1017-0404</div>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/fahid-brahim-66a20788" target="_blank" rel="noopener" class="contact-card">
+              <div class="contact-card-icon"><i class="bi bi-linkedin"></i></div>
+              <div>
+                <div class="contact-card-label">LinkedIn</div>
+                <div class="contact-card-value">fahid-brahim-66a20788</div>
+              </div>
+            </a>
+
+            <a href="{{google_scholar_url}}" target="_blank" rel="noopener" class="contact-card" id="scholar-link">
+              <div class="contact-card-icon"><i class="bi bi-mortarboard"></i></div>
+              <div>
+                <div class="contact-card-label">Google Scholar</div>
+                <div class="contact-card-value">BRAHIM FAHID</div>
+              </div>
+            </a>
+
+            <a href="{{researchgate_url}}" target="_blank" rel="noopener" class="contact-card" id="rg-link">
+              <div class="contact-card-icon"><i class="bi bi-journals"></i></div>
+              <div>
+                <div class="contact-card-label">ResearchGate</div>
+                <div class="contact-card-value">{{researchgate_handle}}</div>
+              </div>
+            </a>
+
+            <a href="{{scopus_url}}" target="_blank" rel="noopener" class="contact-card" id="scopus-link">
+              <div class="contact-card-icon"><i class="bi bi-search"></i></div>
+              <div>
+                <div class="contact-card-label">Scopus</div>
+                <div class="contact-card-value">{{scopus_id}}</div>
+              </div>
+            </a>
+
+            <a href="{{mendeley_url}}" target="_blank" rel="noopener" class="contact-card" id="mendeley-link">
+              <div class="contact-card-icon"><i class="bi bi-book"></i></div>
+              <div>
+                <div class="contact-card-label">Mendeley</div>
+                <div class="contact-card-value">{{mendeley_handle}}</div>
+              </div>
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       FOOTER
+  ===================== -->
+  <footer>
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <div>
+          <div class="footer-brand">Prof. <span>Brahim Fahid</span></div>
+          <div class="footer-copy">© 2025 · Ibn Tofaïl University, Kénitra, Morocco</div>
+        </div>
+        <a href="/admin/" class="footer-admin-link">
+          <i class="bi bi-lock"></i> Admin Dashboard
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /* ── Netlify Identity redirect ── */
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+
+    /* ── Scroll progress bar ── */
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (window.scrollY / total * 100) + '%';
+    });
+
+    /* ── Navbar scroll effect ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* ── Active nav link ── */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link-custom');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.nav-link-custom[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => observer.observe(s));
+
+    /* ── Reveal on scroll ── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* ── Publication filter ── */
+    document.querySelectorAll('.pub-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pub-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.pub-card').forEach(card => {
+          const year = card.dataset.year || '';
+          const tags = card.dataset.tags || '';
+          const show = filter === 'all' || year === filter || tags.includes(filter);
+          card.style.display = show ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+
+  <!-- =====================
+       CMS DATA LOADER
+       Fetches JSON/_data files saved by Decap CMS and
+       injects them into the page dynamically.
+  ===================== -->
+  <script>
+    async function loadCMSData() {
+      try {
+        // ── Load all data files in parallel ──
+        const [general, biography, social, research] = await Promise.all([
+          fetch('/_data/general.json').then(r => r.ok ? r.json() : null),
+          fetch('/_data/biography.json').then(r => r.ok ? r.json() : null),
+          fetch('/_data/social.json').then(r => r.ok ? r.json() : null),
+          fetch('/_data/research.json').then(r => r.ok ? r.json() : null),
+        ]);
+
+        // ── GENERAL ──
+        if (general) {
+          // Name
+          if (general.name) {
+            const parts = general.name.replace('Prof. ', '').split(' ');
+            const last = parts.pop();
+            document.querySelector('#hero-name').innerHTML =
+              `Prof. ${parts.join(' ')}<br /><em>${last}</em>`;
+          }
+
+          // Title
+          if (general.title_fr || general.department || general.institution) {
+            document.querySelector('#hero-title').innerHTML =
+              `<strong>${general.title_fr || ''}</strong><br />
+               ${general.department || ''} · ${general.institution || ''}`;
+          }
+
+          // Photo
+          if (general.photo) {
+            ['#hero-photo', '#about-photo'].forEach(sel => {
+              const wrap = document.querySelector(sel);
+              if (wrap) {
+                wrap.innerHTML = `<img src="${general.photo}" alt="${general.name}" />`;
+              }
+            });
+          }
+
+          // Hero stats
+          if (general.stats && general.stats.length) {
+            const statsEl = document.querySelector('#hero-stats');
+            if (statsEl) {
+              statsEl.innerHTML = general.stats.map(s => `
+                <div>
+                  <div class="hero-stat-num">${s.number}</div>
+                  <div class="hero-stat-label">${s.label}</div>
+                </div>
+              `).join('');
+            }
+          }
+        }
+
+        // ── BIOGRAPHY ──
+        if (biography) {
+          if (biography.lead)   setText('#bio-lead', biography.lead);
+          if (biography.body_1) setText('#bio-body', biography.body_1);
+          if (biography.body_2) setText('#bio-body-2', biography.body_2);
+
+          // Education timeline
+          if (biography.education && biography.education.length) {
+            const tl = document.querySelector('#education-timeline');
+            if (tl) {
+              tl.innerHTML = biography.education.map(e => `
+                <div class="timeline-item">
+                  <div class="timeline-year">${e.label || ''}</div>
+                  <div class="timeline-degree">${e.degree || ''}</div>
+                  <div class="timeline-institution">${e.institution || ''}${e.year ? ' · ' + e.year : ''}</div>
+                  ${e.thesis ? `<div class="timeline-institution" style="font-style:italic;margin-top:0.2rem;">${e.thesis}</div>` : ''}
+                </div>
+              `).join('');
+            }
+          }
+        }
+
+        // ── SOCIAL / PROFILES ──
+        if (social) {
+          if (social.email) {
+            const emailEl = document.querySelector('#contact-email');
+            if (emailEl) emailEl.textContent = social.email;
+          }
+
+          const profiles = document.querySelector('#social-profiles');
+          if (profiles && social) {
+            // Update individual links
+            updateLink('#scholar-link', social.scholar_url,
+              'Google Scholar', social.scholar_url ? 'BRAHIM FAHID' : '{{scholar_url}}');
+            updateLink('#rg-link', social.researchgate_url,
+              'ResearchGate', social.researchgate_handle || '{{researchgate_handle}}');
+            updateLink('#scopus-link', social.scopus_url,
+              'Scopus', social.scopus_id || '{{scopus_id}}');
+            updateLink('#mendeley-link', social.mendeley_url,
+              'Mendeley', social.mendeley_url ? 'View Profile' : '{{mendeley_url}}');
+          }
+        }
+
+        // ── RESEARCH ──
+        if (research) {
+          if (research.intro) setText('#research-intro', research.intro);
+          if (research.lab_name) setText('#lab-name', research.lab_name);
+          if (research.lab_director) setText('#lab-director', research.lab_director);
+
+          // Research interests pills
+          if (research.interests && research.interests.length) {
+            const interestsEl = document.querySelector('#research-interests .d-flex');
+            if (interestsEl) {
+              interestsEl.innerHTML = research.interests.map(i => `
+                <span class="interest-pill">
+                  <i class="bi bi-${i.icon || 'diagram-3'}"></i> ${i.label}
+                </span>
+              `).join('');
+            }
+          }
+
+          // Activities
+          if (research.activities && research.activities.length) {
+            const actEl = document.querySelector('#activities-text');
+            if (actEl) {
+              actEl.innerHTML = research.activities.map(a => `
+                <div class="mb-2">
+                  <i class="bi bi-check-circle text-gold-light me-2"></i>
+                  ${a.activity}
+                </div>
+              `).join('');
+            }
+          }
+        }
+
+        // ── PUBLICATIONS ──
+        await loadPublications();
+
+        // ── TEACHING ──
+        await loadTeaching();
+
+      } catch (err) {
+        console.warn('CMS data load error:', err);
+      }
+    }
+
+    async function loadPublications() {
+      try {
+        // Fetch the list of publication files
+        const res = await fetch('/_publications/');
+        if (!res.ok) return;
+
+        // We use a known index approach: fetch each .md file
+        // Since we can't list directory contents from static hosting,
+        // we load from a generated index file
+        const indexRes = await fetch('/_publications/index.json');
+        if (!indexRes.ok) return;
+
+        const files = await indexRes.json();
+        const pubs = await Promise.all(
+          files.map(f => fetch(`/_publications/${f}`).then(r => r.text()).then(parseFrontmatter))
+        );
+
+        const list = document.querySelector('#publications-list');
+        if (!list || !pubs.length) return;
+
+        // Clear existing static cards and rebuild
+        list.innerHTML = pubs
+          .filter(p => p && p.title)
+          .sort((a, b) => (b.year || 0) - (a.year || 0))
+          .map(p => `
+            <div class="pub-card reveal" data-year="${p.year || ''}" data-tags="${(p.tags || []).join(' ')}">
+              <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                <div class="pub-type"><i class="bi bi-journal-text me-1"></i> ${p.type || 'Journal Article'}</div>
+                <span class="pub-year-badge">${p.year || ''}</span>
+              </div>
+              <div class="pub-title">${p.title}</div>
+              <div class="pub-authors">${p.authors || ''}</div>
+              <div class="pub-venue">${p.venue || ''}</div>
+              ${p.doi ? `<a href="https://doi.org/${p.doi}" target="_blank" rel="noopener" class="pub-doi-link">
+                <i class="bi bi-link-45deg"></i> DOI: ${p.doi}
+              </a>` : (p.url ? `<a href="${p.url}" target="_blank" rel="noopener" class="pub-doi-link">
+                <i class="bi bi-link-45deg"></i> View Article
+              </a>` : '')}
+            </div>
+          `).join('');
+
+        // Re-observe new cards for reveal animation
+        list.querySelectorAll('.reveal').forEach(el => {
+          revealObserver.observe(el);
+        });
+
+      } catch (e) {
+        // Publications index not found — keep static cards
+      }
+    }
+
+    async function loadTeaching() {
+      try {
+        const indexRes = await fetch('/_teaching/index.json');
+        if (!indexRes.ok) return;
+
+        const files = await indexRes.json();
+        const courses = await Promise.all(
+          files.map(f => fetch(`/_teaching/${f}`).then(r => r.text()).then(parseFrontmatter))
+        );
+
+        const grid = document.querySelector('#teaching-modules');
+        if (!grid || !courses.length) return;
+
+        grid.innerHTML = courses
+          .filter(c => c && c.title && c.active !== false)
+          .map((c, i) => `
+            <div class="col-md-6 col-lg-4 reveal reveal-delay-${(i % 4) + 1}">
+              <div class="teaching-card">
+                <div class="teaching-icon"><i class="bi bi-${c.icon || 'calculator'}"></i></div>
+                <div class="teaching-level">${c.level || ''}</div>
+                <div class="teaching-course-name">${c.title}</div>
+                <div class="teaching-desc">${c.description || ''}</div>
+              </div>
+            </div>
+          `).join('');
+
+        grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      } catch (e) {
+        // Keep static teaching cards
+      }
+    }
+
+    // ── Helpers ──
+    function setText(sel, text) {
+      const el = document.querySelector(sel);
+      if (el) el.textContent = text;
+    }
+
+    function updateLink(sel, url, label, value) {
+      const el = document.querySelector(sel);
+      if (!el) return;
+      if (url) {
+        el.href = url;
+        const valEl = el.querySelector('.contact-card-value');
+        if (valEl) valEl.textContent = value;
+      }
+    }
+
+    function parseFrontmatter(text) {
+      if (!text || !text.startsWith('---')) return null;
+      const end = text.indexOf('---', 3);
+      if (end === -1) return null;
+      const yaml = text.slice(3, end).trim();
+      const obj = {};
+      yaml.split('\n').forEach(line => {
+        const colon = line.indexOf(':');
+        if (colon === -1) return;
+        let key = line.slice(0, colon).trim();
+        let val = line.slice(colon + 1).trim();
+        // Remove surrounding quotes
+        if ((val.startsWith('"') && val.endsWith('"')) ||
+            (val.startsWith("'") && val.endsWith("'"))) {
+          val = val.slice(1, -1);
+        }
+        // Parse arrays like ["a","b"]
+        if (val.startsWith('[') && val.endsWith(']')) {
+          try { val = JSON.parse(val); } catch(e) { val = []; }
+        }
+        // Parse booleans
+        if (val === 'true') val = true;
+        if (val === 'false') val = false;
+        obj[key] = val;
+      });
+      return obj;
+    }
+
+    // Run after page loads
+    window.addEventListener('DOMContentLoaded', loadCMSData);
+  </script>
+
+</body>
+</html>
